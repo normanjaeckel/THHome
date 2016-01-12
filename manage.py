@@ -36,11 +36,6 @@ def create_deployment_dir():
                 "WSGI_APPLICATION = '%s'" % wsgi_app,
                 settings)
 
-            settings = re.sub(
-                r"DEPLOYMENT_DIRECTORY_NAME = ''",
-                "DEPLOYMENT_DIRECTORY_NAME = '%s'" % DEPLOYMENT_DIRECTORY_NAME,
-                settings)
-
             settings_path = os.path.join(
                 os.path.join(base_dir, DEPLOYMENT_DIRECTORY_NAME),
                 'settings.py')
