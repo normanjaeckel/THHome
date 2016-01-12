@@ -18,7 +18,7 @@ DJANGO_SETTINGS_MODULE = ''
 # site.addsitedir(os.path.join(
 #     BASE_DIR, '.virtualenv', 'lib', 'python3.4', 'site-packages'))
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "THHome.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", DJANGO_SETTINGS_MODULE)
 
 from django.core.wsgi import get_wsgi_application  # flake8:noqa isort:skip
 
