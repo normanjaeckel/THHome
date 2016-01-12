@@ -131,3 +131,9 @@
     </div>
 
 {% endblock %}
+
+{% block adminlink %}
+
+    <p><a href="{% url 'admin:THHome_realestate_change' realestate.pk %}">Link zur Administration</a></p>
+
+{% endblock %}
