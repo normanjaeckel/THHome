@@ -26,12 +26,12 @@ To check coding styles run::
     $ isort --multi_line 3 --check-only --skip THHome/migrations --recursive manage.py THHome
 
 
-Template
---------
+Credits
+-------
 
-`Start Bootstrap - Creative
-<http://startbootstrap.com/template-overviews/creative/>`_, Copyright
-2013-2015 Iron Summit Media Strategies, LLC. Code released under the
-`Apache 2.0
-<https://github.com/IronSummitMedia/startbootstrap-creative/blob/gh-pages/LIC
-ENSE>`_ license.
+The used template is `Creative
+<http://startbootstrap.com/template-overviews/creative/>`_. The code of
+this template was released under the `Apache 2.0
+<https://github.com/IronSummitMedia/startbootstrap-creative/blob/gh-pages/LICENSE>`_
+license by `Start Bootstrap <http://startbootstrap.com/>`_, Iron Summit
+Media Strategies, LLC.
