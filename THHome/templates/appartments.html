@@ -1,0 +1,33 @@
+<section id="appartments">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Alle freien Wohnungen im Überblick</h2>
+                <hr class="primary">
+            </div>
+        </div>
+        <div class="row clearfix">
+        {% for realestate in realestate_list %}
+            <div class="col-lg-3">
+                <h3>{{ realestate.title }}</h3>
+                <p>
+                    {{ realestate.rooms }} Zimmer
+                    &middot;
+                    {{ realestate.size }} m²
+                    &middot;
+                    {{ realestate.netto|floatformat:2 }} Euro
+                </p>
+                <p>{{ realestate.description|truncatewords:20 }}</p>
+                <a href="{% url 'detail' realestate.pk %}#appartment" class="btn btn-primary">Details</a>
+            </div>
+            {% if forloop.counter|divisibleby:4 %}
+                </div><div class="row clearfix">
+            {% endif %}
+        {% empty %}
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p>Im Moment sind keine Wohnungen frei. Hinterlassen Sie uns Ihre Kontaktdaten und wir informieren Sie, sobald eine Wohnung frei wird.</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,155 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TODO">
+    <meta name="author" content="TODO">
+
+    <title>Schöner Wohnen mit TH</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/creative.css' %}" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    {% block nav %}
+
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Schöner Wohnen mit TH</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#page-top">Start</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#about">Über uns</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#appartments-images">Neu</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#appartments">Wohnungen</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact">Kontakt</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#legal-notice">Impressum</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+    {% endblock %}
+
+
+    {% block header %}
+
+        <header>
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1>Wohnungen in bester Lage &amp; Solide &amp; Günstig</h1>
+                    <hr>
+                    <p>Schauen Sie sich hier doch mal um. Vielleicht finden Sie gleich Ihr neues Zuhause.</p>
+                    <a href="#appartments" class="btn btn-primary btn-xl page-scroll">Wohnung suchen</a>
+                </div>
+            </div>
+        </header>
+
+    {% endblock %}
+
+
+    {% block pages %}
+
+        {% include 'about.html' %}
+
+        {% include 'appartments-images.html' %}
+
+        {% include 'appartments.html' %}
+
+        <section class="bg-primary" id="appartments">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading">Was könnte hier stehen oder soll das weg?</h2>
+                        <hr class="light">
+                        <p class="text-faded">Hier könnte irgendwas stehen, was noch interessant und wichtig ist. Aber was nur? Auch längerer Text, der dann umbricht</p>
+                        <a href="#" class="btn btn-default btn-xl">Get Started!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}
+
+    {% include 'contact.html' %}
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Was könnte hir noch hin?</h2>
+                <a href="#" class="btn btn-default btn-xl wow tada">Klicken Sie hier!</a>
+            </div>
+        </div>
+    </aside>
+
+    {% include 'legal-notice.html' %}
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fittext.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/creative.js' %}"></script>
+
+</body>
+
+</html>

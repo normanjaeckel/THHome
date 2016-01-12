@@ -1,0 +1,133 @@
+{% extends 'index.html' %}
+
+{% block nav %}
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Schöner Wohnen mit TH</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="{% url 'home' %}#appartments">Zurück zur Wohungsübersicht</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Kontakt</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#legal-notice">Impressum</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+{% endblock %}
+
+
+{% block header %}
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>{{ realestate.title }}</h1>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+
+{% block pages %}
+
+    <section id="appartment">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2 class="section-heading">{{ realestate.title }}</h2>
+                    <p>
+                        {{ realestate.rooms }} Zimmer
+                        &middot;
+                        {{ realestate.size }} m²
+                        &middot;
+                        {{ realestate.netto|floatformat:2 }} Euro
+                    </p>
+                    <p>{{ realestate.description|linebreaks }}</p>
+                    <h3>Eckdaten</h3>
+                    <dl class="dl-horizontal">
+                        <dt>Zimmer</dt>
+                        <dd>{{ realestate.rooms }}</dd>
+                        <dt>Größe</dt>
+                        <dd>{{ realestate.size }} m²</dd>
+                        {% if realestate.floor %}
+                            <dt>Etage</dt>
+                            <dd>{{ realestate.floor }}</dd>
+                        {% endif %}
+                        <dt>Balkon/Terrasse</dt>
+                        <dd>{{ realestate.balcony|yesno }}</dd>
+                        <dt>Aufzug</dt>
+                        <dd>{{ realestate.elevator|yesno }}</dd>
+                    </dl>
+                    <h3>Kosten</h3>
+                    <dl class="dl-horizontal">
+                        <dt>Kaltmiete</dt>
+                        <dd>{{ realestate.netto|floatformat:2 }} Euro</dd>
+                        <dt>Betriebskosten</dt>
+                        <dd>{{ realestate.extra_costs|floatformat:2 }} Euro</dd>
+                        <dt>Warmmiete</dt>
+                        <dd>{{ realestate.brutto|floatformat:2 }} Euro</dd>
+                        <dt>Kaution</dt>
+                        <dd>{{ realestate.deposit }}</dd>
+                    </dl>
+                    {% if realestate.expose %}
+                        <a href="{{ MEDIA_URL }}{{ realestate.expose.pdf }}" class="btn btn-primary">Exposé herunterladen</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .custom-images > [class*=col-] {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    </style>
+
+    <section class="no-padding" id="appartment-images">
+        <div class="container-fluid">
+            <div class="row custom-images">
+                {% for image in realestate.image_set.all %}
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="{{ MEDIA_URL }}{{ image.image }}" class="portfolio-box">
+                            <img src="{{ MEDIA_URL }}{{ image.image }}" class="img-responsive" alt="{{ image.description }}">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        {{ image.short_description }}
+                                    </div>
+                                    <div class="project-name">
+                                        {{ image.long_description }}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
