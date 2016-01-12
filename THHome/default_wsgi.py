@@ -13,10 +13,10 @@ import os
 
 DJANGO_SETTINGS_MODULE = ''
 
-# FETSY_HOME = '/path/to/FeTSy'
-# site.addsitedir(FETSY_HOME)
+# BASE_DIR = '/path/to/base_dir'
+# site.addsitedir(BASE_DIR)
 # site.addsitedir(os.path.join(
-#     FETSY_HOME, '.virtualenv', 'lib', 'python3.4', 'site-packages'))
+#     BASE_DIR, '.virtualenv', 'lib', 'python3.4', 'site-packages'))
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "THHome.settings")
 
