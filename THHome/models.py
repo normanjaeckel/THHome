@@ -104,8 +104,8 @@ class Image(models.Model):
 
     class Meta:
         ordering = ('realestate',)
-        verbose_name = 'Bild'
-        verbose_name_plural = 'Bilder'
+        verbose_name = 'Bild für Wohnung/Grundstück'
+        verbose_name_plural = 'Bilder für Wohnungen/Grundstücke'
 
     def __str__(self):
         return 'Bild zu Wohnung/Grundstück {id}: {description}'.format(
@@ -141,3 +141,81 @@ class Expose(models.Model):
 
     def __str__(self):
         return 'Exposé zu {}'.format(self.realestate)
+
+
+class Deal(models.Model):
+    """
+    Model for special deals and news.
+    """
+    title = models.CharField(
+        'Titel',
+        max_length=255)
+
+    text = models.TextField(
+        'Text')
+
+    icon = models.CharField(
+        'Icon',
+        max_length=255,
+        default='star',
+        help_text='Siehe http://fontawesome.io/icons/.')
+
+    weight = models.IntegerField(
+        'Gewichtung',
+        default=100,
+        help_text='Bestimmt die Reihenfolge der Elemente. Elemente mit '
+                  'größeren Zahlen erscheinen weiter unten beziehungsweise '
+                  'hinten.')
+
+    class Meta:
+        ordering = ('weight',)
+        verbose_name = 'Sonderaktion'
+        verbose_name_plural = 'Sonderaktionen'
+
+    def __str__(self):
+        return 'Sonderaktion: {}'.format(self.title)
+
+
+class Impression(models.Model):
+    """
+    Model for images for global impressions.
+    """
+    image = models.FileField(
+        'Bild')
+
+    short_description = models.CharField(
+        'Kurzbeschreibung/Schlagwort',
+        max_length=255,
+        help_text='Die Kurzbeschreibung erscheint als Titel im Bild.')
+
+    long_description = models.TextField(
+        'Längere Beschreibung',
+        blank=True,
+        help_text='Die längere Beschreibung erscheint im Bild unter der '
+                  'Kurzbeschreibung. Keinen zu langen Text verwenden.')
+
+    weight = models.IntegerField(
+        'Gewichtung',
+        default=100,
+        help_text='Bestimmt die Reihenfolge der Elemente. Elemente mit '
+                  'größeren Zahlen erscheinen weiter unten beziehungsweise '
+                  'hinten.')
+
+    class Meta:
+        ordering = ('weight',)
+        verbose_name = 'Bild für Impression'
+        verbose_name_plural = 'Bilder für Impressionen'
+
+    def __str__(self):
+        return 'Bild für Impression: {description}'.format(
+            description=self.description)
+
+    @property
+    def description(self):
+        """
+        Returns a combination of short and long description.
+        """
+        description = self.short_description
+        if self.long_description:
+            description += ' ({})'.format(self.long_description)
+        return description

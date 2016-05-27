@@ -1,0 +1,79 @@
+{% extends 'index.html' %}
+
+{% block nav %}
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">{{ config.TITLE }}</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="{% url 'home' %}#impressions">Zurück zur Startseite</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Kontakt</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#legal-notice">Impressum</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+{% endblock %}
+
+
+{% block header %}
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 class="header-text">Impressionen</h1>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+
+{% block pages %}
+
+    <section class="no-padding" id="impressions" style="margin-top:3em">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                {% for impression in impression_list %}
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="{{ MEDIA_URL }}{{ impression.image }}" class="portfolio-box">
+                            <img src="{{ MEDIA_URL }}{{ impression.image }}" class="img-responsive" alt="{{ impression.description }}">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        {{ impression.short_description }}
+                                    </div>
+                                    <div class="project-name">
+                                        {{ impression.long_description }}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

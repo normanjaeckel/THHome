@@ -11,7 +11,7 @@
     <meta name="description" content="TODO">
     <meta name="author" content="TODO">
 
-    <title>Schöner Wohnen mit TH</title>
+    <title>{{ config.TITLE }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
@@ -51,7 +51,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Schöner Wohnen mit TH</a>
+                    <a class="navbar-brand page-scroll" href="#page-top">{{ config.TITLE }}</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,16 +61,25 @@
                             <a class="page-scroll" href="#page-top">Start</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#about">Über uns</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#appartments-images">Neu</a>
+                            <a class="page-scroll" href="#deals">Aktionen</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#appartments">Wohnungen</a>
                         </li>
                         <li>
+                            <a class="page-scroll" href="#">WG-Zimmer</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#about">Wohnanlage</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#">Lage</a>
+                        </li>
+                        <li>
                             <a class="page-scroll" href="#contact">Kontakt</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#">Kreativität</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#legal-notice">Impressum</a>
@@ -90,9 +99,9 @@
         <header>
             <div class="header-content">
                 <div class="header-content-inner">
-                    <h1 class="header-text">Wohnungen in bester Lage &amp; Solide &amp; Günstig</h1>
+                    <h1 class="header-text">{{ config.HEADLINE }}</h1>
                     <hr>
-                    <p class="header-text">Schauen Sie sich hier doch mal um. Vielleicht finden Sie gleich Ihr neues Zuhause.</p>
+                    <p class="header-text">{{ config.SUB_HEADLINE }}</p>
                     <a href="#appartments" class="btn btn-primary btn-xl page-scroll">Wohnung suchen</a>
                 </div>
             </div>
@@ -103,24 +112,15 @@
 
     {% block pages %}
 
-        {% include 'about.html' %}
+        {% include 'deals.html' %}
 
-        {% include 'appartments-images.html' %}
+        {% include 'impressions.html' %}
 
         {% include 'appartments.html' %}
 
-        <section class="bg-primary" id="appartments">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <h2 class="section-heading">Was könnte hier stehen oder soll das weg?</h2>
-                        <hr class="light">
-                        <p class="text-faded">Hier könnte irgendwas stehen, was noch interessant und wichtig ist. Aber was nur? Auch längerer Text, der dann umbricht</p>
-                        <a href="#" class="btn btn-default btn-xl">Get Started!</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        {% include 'appartments.html' %}
+
+        {% include 'about.html' %}
 
     {% endblock %}
 

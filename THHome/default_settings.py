@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'constance',
+    'constance.backends.database',
     'THHome',
 ]
 
@@ -61,6 +63,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'constance.context_processors.config',
             ],
         },
     },
@@ -138,3 +141,22 @@ STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
+
+
+# Constance - Dynamic Django settings
+# http://django-constance.readthedocs.io/en/latest/
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+
+CONSTANCE_CONFIG = {
+    'TITLE': (
+        'Titel der Seite',
+        'Titel der Seite. Wird im Browserkopf und in der Kopfzeile der Seite '
+        'verwendet.'),
+    'HEADLINE': (
+        'Kopfzeile',
+        'Kopfzeile auf der Startseite.'),
+    'SUB_HEADLINE': (
+        'Untertitel unter der Kopfzeile',
+        'Text unter der Kopfzeile auf der Startseite.')
+}
