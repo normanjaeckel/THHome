@@ -1,40 +1,38 @@
-{% load staticfiles %}
-
-    <section class="no-padding" id="impressions">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                {% for impression in impressions %}
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="{{ MEDIA_URL }}{{ impression.image }}" class="portfolio-box">
-                            <img src="{{ MEDIA_URL }}{{ impression.image }}" class="img-responsive" alt="{{ impression.description }}">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        {{ impression.short_description }}
-                                    </div>
-                                    <div class="project-name">
-                                        {{ impression.long_description }}
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
+<section class="no-padding" id="impressions">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            {% for impression in impressions %}
                 <div class="col-lg-4 col-sm-6">
-                    <a href="{% url 'impressions_all' %}" class="portfolio-box">
-                        <img src="http://placehold.it/650x350" class="img-responsive" alt="Bild für den Link zu weiteren Impressionen">
+                    <a href="{{ MEDIA_URL }}{{ impression.image }}" class="portfolio-box">
+                        <img src="{{ MEDIA_URL }}{{ impression.image }}" class="img-responsive" alt="{{ impression.description }}">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Mehr davon
+                                    {{ impression.short_description }}
                                 </div>
                                 <div class="project-name">
-                                    Weitere Impressionen finden Sie hier
+                                    {{ impression.long_description }}
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+            {% endfor %}
+            <div class="col-lg-4 col-sm-6">
+                <a href="{% url 'impressions_all' %}" class="portfolio-box">
+                    <img src="http://placehold.it/650x350" class="img-responsive" alt="Bild für den Link zu weiteren Impressionen">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Mehr davon
+                            </div>
+                            <div class="project-name">
+                                Weitere Impressionen finden Sie hier
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>

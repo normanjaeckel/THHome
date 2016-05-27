@@ -1,3 +1,7 @@
 .header-text {
     color: #f05f40!important;
 }
+
+.service-box p.text-faded a {
+    color: #337ab7
+}

@@ -102,8 +102,15 @@ class Image(models.Model):
         help_text='Die längere Beschreibung erscheint im Bild unter der '
                   'Kurzbeschreibung. Keinen zu langen Text verwenden.')
 
+    weight = models.IntegerField(
+        'Gewichtung',
+        default=100,
+        help_text='Bestimmt die Reihenfolge der Elemente. Elemente mit '
+                  'größeren Zahlen erscheinen weiter unten beziehungsweise '
+                  'hinten. Das erste Bild erscheint auf der Startseite.')
+
     class Meta:
-        ordering = ('realestate',)
+        ordering = ('realestate', 'weight')
         verbose_name = 'Bild für Wohnung/Grundstück'
         verbose_name_plural = 'Bilder für Wohnungen/Grundstücke'
 
@@ -132,7 +139,7 @@ class Expose(models.Model):
         verbose_name='Wohnung/Grundstück')
 
     pdf = models.FileField(
-        'Bild')
+        'Exposé-Datei')
 
     class Meta:
         ordering = ('realestate',)
@@ -181,7 +188,8 @@ class Impression(models.Model):
     Model for images for global impressions.
     """
     image = models.FileField(
-        'Bild')
+        'Bild',
+        help_text='Bildformat 650 x 350')
 
     short_description = models.CharField(
         'Kurzbeschreibung/Schlagwort',
