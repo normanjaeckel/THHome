@@ -119,28 +119,32 @@
 
         {% include 'location.html' %}
 
+        {% include 'contact.html' %}
+
+        <aside class="bg-dark">
+            <div class="container text-center">
+                <div class="call-to-action">
+                    <h2>Was könnte hier noch hin?</h2>
+                    <a href="#" class="btn btn-default btn-xl wow tada">Klicken Sie hier!</a>
+                </div>
+            </div>
+        </aside>
+
+        {% include 'legal-notice.html' %}
+
     {% endblock %}
 
-    {% include 'contact.html' %}
+    {% if user.is_authenticated %}
 
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2>Was könnte hier noch hin?</h2>
-                <a href="#" class="btn btn-default btn-xl wow tada">Klicken Sie hier!</a>
+        <aside>
+            <div class="container text-center">
+                {% block adminlink %}
+                    <p><a href="{% url 'admin:index' %}">Link zur Administration</a></p>
+                {% endblock %}
             </div>
-        </div>
-    </aside>
+        </aside>
 
-    {% include 'legal-notice.html' %}
-
-    <aside>
-        <div class="container text-center">
-            {% block adminlink %}
-                <p><a href="{% url 'admin:index' %}">Link zur Administration</a></p>
-            {% endblock %}
-        </div>
-    </aside>
+    {% endif %}
 
     <!-- jQuery -->
     <script src="{% static 'js/jquery.js' %}"></script>

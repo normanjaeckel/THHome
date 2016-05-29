@@ -79,17 +79,56 @@
                         <dd>{{ realestate.balcony|yesno }}</dd>
                         <dt>Aufzug</dt>
                         <dd>{{ realestate.elevator|yesno }}</dd>
+                        <dt>Verfügbar ab</dt>
+                        <dd>{{ realestate.when_free }}</dd>
                     </dl>
                     <h3>Kosten</h3>
                     <dl class="dl-horizontal">
                         <dt>Kaltmiete</dt>
                         <dd>{{ realestate.netto|floatformat:2 }} Euro</dd>
-                        <dt>Betriebskosten</dt>
-                        <dd>{{ realestate.extra_costs|floatformat:2 }} Euro</dd>
+                        {% if realestate.split_extra_costs %}
+                            <dt>Kalte Betriebskosten</dt>
+                            <dd>{{ realestate.extra_costs_cold|floatformat:2 }} Euro</dd>
+                            <dt>Heizkosten</dt>
+                            <dd>{{ realestate.extra_costs_heating|floatformat:2 }} Euro</dd>
+                        {% else %}
+                            <dt>Betriebskosten</dt>
+                            <dd>{{ realestate.extra_costs|floatformat:2 }} Euro</dd>
+                        {% endif %}
                         <dt>Warmmiete</dt>
                         <dd>{{ realestate.brutto|floatformat:2 }} Euro</dd>
                         <dt>Kaution</dt>
                         <dd>{{ realestate.deposit }}</dd>
+                    </dl>
+                    {% if realestate.detail_list %}
+                        <h3>Details</h3>
+                        <ul>
+                            {% for detail in realestate.detail_list %}
+                                <li>{{ detail }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if realestate.detail_list %}
+                        <h3>Details</h3>
+                        <ul class="list-unstyled">
+                            {% for detail in realestate.detail_list %}
+                                <li><span class="label label-primary">{{ detail }}</span></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <h3>Energieausweis</h3>
+                    <dl>
+                        <dt>Art des Energieausweises</dt>
+                        <dd>{{ realestate.energy_certificate_dict.type }}</dd>
+                        <dt>Endenergiebedarf/Endenergieverbrauch</dt>
+                        <dd>{{ realestate.energy_certificate_dict.value }}</dd>
+                        <dt>Wesentlicher Energieträger</dt>
+                        <dd>{{ realestate.energy_certificate_dict.source }}</dd>
+                        <dt>Baujahr</dt>
+                        <dd>{{ realestate.energy_certificate_dict.year }}</dd>
+                        <dt>Energieeffizienzklasse</dt>
+                        <dd>{{ realestate.energy_certificate_dict.efficiency_class }}</dd>
                     </dl>
                     {% if realestate.expose %}
                         <a href="{{ MEDIA_URL }}{{ realestate.expose.pdf }}" class="btn btn-primary">Exposé herunterladen</a>
@@ -128,7 +167,9 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
+    </section>
+
+    {% include 'contact.html' %}
 
 {% endblock %}
 

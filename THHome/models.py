@@ -23,6 +23,12 @@ class RealEstate(models.Model):
         'Titel',
         max_length=255)
 
+    description = models.TextField(
+        'Beschreibung',
+        help_text='Absätze sind durch Leerzeilen zu trennen. Die ersten 20 '
+                  'Wörter sind der Anrisstext auf der Startseite. Dieser ist '
+                  'in nur einem Absatz formatiert.')
+
     rooms = models.PositiveIntegerField(
         'Zimmer',
         default=4)
@@ -44,26 +50,47 @@ class RealEstate(models.Model):
         'Aufzug',
         blank=True)
 
+    when_free = models.CharField(
+        'Verfügbar ab',
+        max_length=255,
+        default='sofort')
+
     netto = models.FloatField(
         'Kaltmiete',
         help_text='Angabe in Euro.')
 
-    extra_costs = models.FloatField(
-        'Betriebskosten',
-        help_text='Angabe in Euro. Die Position enthält auch die Heizkosten. '
-                  'Der Heizkostenanteil kann in der Beschreibung erwähnt '
-                  'werden.')
+    extra_costs_cold = models.FloatField(
+        'Kalte Betriebskosten',
+        help_text='Angabe in Euro.')
+
+    extra_costs_heating = models.FloatField(
+        'Heizkosten',
+        help_text='Angabe in Euro.')
+
+    split_extra_costs = models.BooleanField(
+        'Getrennte Ausweisung der Betriebskosten',
+        blank=True,
+        help_text='Ist dieses Feld aktiviert, werden kalte Betriebskosten und '
+                  'Heizkosten getrennt ausgewiesen. Ansonsten wird die Summe '
+                  'gebildet.')
 
     deposit = models.CharField(
         'Kaution',
         max_length=255,
         default='Nach Vereinbarung')
 
-    description = models.TextField(
-        'Beschreibung',
-        help_text='Absätze sind durch Leerzeilen zu trennen. Die ersten 20 '
-                  'Wörter sind der Anrisstext auf der Startseite. Dieser ist '
-                  'in nur einem Absatz formatiert.')
+    details = models.CharField(
+        'Details',
+        max_length=255,
+        blank=True,
+        help_text='Details mit Kommas trennen, zum Beispiel: '
+                  'Fußbodenheizung,Kamin,WG geeignet,Badewanne')
+
+    energy_certificate = models.CharField(
+        'Energieausweis',
+        max_length=255,
+        help_text='Angaben mit Kommas trennen, zum Beispiel: '
+                  'Verbrauchsausweis,100 kWH/(m²*a),Erdgas,1980,B')
 
     class Meta:
         verbose_name = 'Wohnung/Grundstück'
@@ -73,11 +100,40 @@ class RealEstate(models.Model):
         return self.title
 
     @property
+    def extra_costs(self):
+        """
+        Returns all extra costs.
+        """
+        return self.extra_costs_cold + self.extra_costs_heating
+
+    @property
     def brutto(self):
         """
         Returns the total rent.
         """
         return self.netto + self.extra_costs
+
+    @property
+    def detail_list(self):
+        """
+        Returns an iterable of all details of this real estate.
+        """
+        return self.details.split(',')
+
+    @property
+    def energy_certificate_dict(self):
+        """
+        Returns a dictionary with the required data from the energy
+        certificate.
+        """
+        e = self.energy_certificate.split(',') + 5 * ['']
+        return {
+            'type': e[0],
+            'value': e[1],
+            'source': e[2],
+            'year': e[3],
+            'efficiency_class': e[4]
+        }
 
 
 class Image(models.Model):
