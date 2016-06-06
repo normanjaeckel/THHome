@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <section class="no-padding" id="impressions">
     <div class="container-fluid">
         <div class="row no-gutter">
@@ -20,8 +22,8 @@
             {% endfor %}
             <div class="col-lg-4 col-sm-6">
                 <a href="{% url 'impressions_all' %}" class="portfolio-box">
-                    <img src="http://placehold.it/650x350" class="img-responsive" alt="Bild für den Link zu weiteren Impressionen">
-                    <div class="portfolio-box-caption">
+                    <img src="{% static 'img/more_impressions.png' %}" class="img-responsive" alt="Bereich für den Link zu weiteren Impressionen">
+                    <div class="portfolio-box-caption" style="opacity:1;">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
                                 Mehr davon
