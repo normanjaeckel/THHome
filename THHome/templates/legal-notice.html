@@ -4,10 +4,9 @@
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">Impressum</h2>
                 <hr class="primary">
-                <p>XY GmbH &amp; Co. KG &middot; Musterstraße 1 &middot; 04333 Musterstadt</p>
-                <p>Vertreten durch XY Verwaltungs-GmbH &middot; Musterstraße 1 &middot; 04333 Musterstadt</p>
-                <p>Geschäftsführer: Max Mustermann</p>
-                <p>Registergericht: Amtsgericht Musterstadt &middot; HRB 1111</p>
+                {{ config.LEGAL_NOTICE|linebreaks }}
+                <h3 class="section-heading">Haftungsausschluss (Disclaimer) und Datenschutzerklärung</h2>
+                {{ config.LEGAL_NOTICE_DISCLAIMER|linebreaks }}
             </div>
         </div>
     </div>

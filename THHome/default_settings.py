@@ -168,4 +168,11 @@ CONSTANCE_CONFIG = {
     'CONTACT_MAIL': (
         'mail@example.com',
         'E-Mail-Adresse im Bereich Kontakt. HTML-Tags sind möglich.'),
+    'LEGAL_NOTICE': (
+        'XY GmbH & Co. KG · Musterstraße 1 · 04333 Musterstadt',
+        'Text im Impressumsbereich. Leerzeilen erzeugen neue Absätze.'),
+    'LEGAL_NOTICE_DISCLAIMER': (
+        'Haftung für Inhalte, Links und Hinweise zum Urheberrecht ...',
+        'Text im Bereich Haftungsausschluss (Disclaimer) und '
+        'Datenschutzerklärung. Leerzeilen erzeugen neue Absätze.'),
 }
