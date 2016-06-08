@@ -239,6 +239,39 @@ class Deal(models.Model):
         return 'Sonderaktion: {}'.format(self.title)
 
 
+class About(models.Model):
+    """
+    Model for elements in the about section.
+    """
+    title = models.CharField(
+        'Titel',
+        max_length=255)
+
+    text = models.TextField(
+        'Text')
+
+    icon = models.CharField(
+        'Icon',
+        max_length=255,
+        default='star',
+        help_text='Siehe http://fontawesome.io/icons/.')
+
+    weight = models.IntegerField(
+        'Gewichtung',
+        default=100,
+        help_text='Bestimmt die Reihenfolge der Elemente. Elemente mit '
+                  'größeren Zahlen erscheinen weiter unten beziehungsweise '
+                  'hinten.')
+
+    class Meta:
+        ordering = ('weight',)
+        verbose_name = 'Vorteil der Wohnanlage'
+        verbose_name_plural = 'Vorteile der Wohnanlage'
+
+    def __str__(self):
+        return 'Vorteil der Wohnanlage: {}'.format(self.title)
+
+
 class Impression(models.Model):
     """
     Model for images for global impressions.

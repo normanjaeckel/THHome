@@ -1,6 +1,6 @@
 from django.views.generic import DetailView, ListView
 
-from .models import Deal, Impression, RealEstate
+from .models import About, Deal, Impression, RealEstate
 
 
 class Home(ListView):
@@ -13,6 +13,7 @@ class Home(ListView):
     def get_context_data(self, **context):
         context['deals'] = Deal.objects.all()
         context['impressions'] = Impression.objects.all()[:5]
+        context['abouts'] = About.objects.all()
         return super().get_context_data(**context)
 
 
