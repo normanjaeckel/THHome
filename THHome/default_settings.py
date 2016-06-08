@@ -162,4 +162,10 @@ CONSTANCE_CONFIG = {
     'HEADER_IMAGE': (
         'img/header.jpg',
         'Pfad unterhalb des Ordners mit den statischen Dateien.'),
+    'CONTACT_PHONE': (
+        '0123 45 67 89 0 <br> 0987 65 43 21 0',
+        'Telefonnummer im Bereich Kontakt. HTML-Tags sind möglich.'),
+    'CONTACT_MAIL': (
+        'mail@example.com',
+        'E-Mail-Adresse im Bereich Kontakt. HTML-Tags sind möglich.'),
 }
