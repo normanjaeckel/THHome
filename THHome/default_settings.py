@@ -158,5 +158,8 @@ CONSTANCE_CONFIG = {
         'Kopfzeile auf der Startseite.'),
     'SUB_HEADLINE': (
         'Untertitel unter der Kopfzeile',
-        'Text unter der Kopfzeile auf der Startseite.')
+        'Text unter der Kopfzeile auf der Startseite.'),
+    'HEADER_IMAGE': (
+        'img/header.jpg',
+        'Pfad unterhalb des Ordners mit den statischen Dateien.'),
 }
