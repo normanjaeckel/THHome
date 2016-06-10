@@ -65,6 +65,7 @@
                         {{ realestate.netto|floatformat:2 }} Euro
                     </p>
                     <p>{{ realestate.description|linebreaks }}</p>
+
                     <h3>Eckdaten</h3>
                     <dl class="dl-horizontal">
                         <dt>Zimmer</dt>
@@ -82,6 +83,7 @@
                         <dt>Verfügbar ab</dt>
                         <dd>{{ realestate.when_free }}</dd>
                     </dl>
+
                     <h3>Kosten</h3>
                     <dl class="dl-horizontal">
                         <dt>Kaltmiete</dt>
@@ -102,19 +104,16 @@
                     </dl>
                     {% if realestate.detail_list %}
                         <h3>Details</h3>
-                        <ul>
+                        <div class="row">
                             {% for detail in realestate.detail_list %}
-                                <li>{{ detail }}</li>
+                                <div class="col-xs-4">
+                                    <p class="text-center">
+                                        <span class="label label-primary text-center">{{ detail }}</span>
+                                    </p>
+
+                                </div>
                             {% endfor %}
-                        </ul>
-                    {% endif %}
-                    {% if realestate.detail_list %}
-                        <h3>Details</h3>
-                        <ul class="list-unstyled">
-                            {% for detail in realestate.detail_list %}
-                                <li><span class="label label-primary">{{ detail }}</span></li>
-                            {% endfor %}
-                        </ul>
+                        </div>
                     {% endif %}
 
                     <h3>Energieausweis</h3>
@@ -131,7 +130,7 @@
                         <dd>{{ realestate.energy_certificate_dict.efficiency_class }}</dd>
                     </dl>
                     {% if realestate.expose %}
-                        <a href="{{ MEDIA_URL }}{{ realestate.expose.pdf }}" class="btn btn-primary">Exposé herunterladen</a>
+                        <a href="{{ MEDIA_URL }}{{ realestate.expose.pdf }}" class="btn btn-primary btn-xl">Exposé herunterladen</a>
                     {% endif %}
                 </div>
             </div>

@@ -118,7 +118,8 @@ class RealEstate(models.Model):
         """
         Returns an iterable of all details of this real estate.
         """
-        return self.details.split(',')
+        return [detail.strip() for detail in self.details.split(',')
+                if not detail.strip() == '']
 
     @property
     def energy_certificate_dict(self):
