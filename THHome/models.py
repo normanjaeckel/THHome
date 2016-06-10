@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 
 
@@ -96,8 +98,8 @@ class RealEstate(models.Model):
         verbose_name = 'Wohnung/Grundstück'
         verbose_name_plural = 'Wohnungen/Grundstücke'
 
-    def __str__(self):
-        return self.title
+    def __unicode__(self):
+        return unicode(self.title)
 
     @property
     def extra_costs(self):
@@ -171,8 +173,8 @@ class Image(models.Model):
         verbose_name = 'Bild für Wohnung/Grundstück'
         verbose_name_plural = 'Bilder für Wohnungen/Grundstücke'
 
-    def __str__(self):
-        return 'Bild zu Wohnung/Grundstück {id}: {description}'.format(
+    def __unicode__(self):
+        return u'Bild zu Wohnung/Grundstück {id}: {description}'.format(
             id=self.realestate.pk,
             description=self.description)
 
@@ -203,8 +205,8 @@ class Expose(models.Model):
         verbose_name = 'Exposé'
         verbose_name_plural = 'Exposés'
 
-    def __str__(self):
-        return 'Exposé zu {}'.format(self.realestate)
+    def __unicode__(self):
+        return u'Exposé zu {}'.format(self.realestate)
 
 
 class Deal(models.Model):
@@ -242,8 +244,8 @@ class Deal(models.Model):
         verbose_name = 'Sonderaktion'
         verbose_name_plural = 'Sonderaktionen'
 
-    def __str__(self):
-        return 'Sonderaktion: {}'.format(self.title)
+    def __unicode__(self):
+        return u'Sonderaktion: {}'.format(self.title)
 
 
 class About(models.Model):
@@ -275,8 +277,8 @@ class About(models.Model):
         verbose_name = 'Vorteil der Wohnanlage'
         verbose_name_plural = 'Vorteile der Wohnanlage'
 
-    def __str__(self):
-        return 'Vorteil der Wohnanlage: {}'.format(self.title)
+    def __unicode__(self):
+        return u'Vorteil der Wohnanlage: {}'.format(self.title)
 
 
 class Impression(models.Model):
@@ -310,8 +312,8 @@ class Impression(models.Model):
         verbose_name = 'Bild für Impression'
         verbose_name_plural = 'Bilder für Impressionen'
 
-    def __str__(self):
-        return 'Bild für Impression: {description}'.format(
+    def __unicode__(self):
+        return u'Bild für Impression: {description}'.format(
             description=self.description)
 
     @property

@@ -10,7 +10,7 @@ Local development
 
 To setup a local development version run::
 
-    $ virtualenv .virtualenv --python=python3
+    $ virtualenv .virtualenv --python=python2
     $ source .virtualenv/bin/activate
     $ pip install -U pip
     $ pip install --requirement requirements.txt

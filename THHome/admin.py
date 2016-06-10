@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib.admin import ModelAdmin, site
 from django.contrib.auth.models import Group
 

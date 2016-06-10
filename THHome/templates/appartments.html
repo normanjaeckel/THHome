@@ -20,9 +20,10 @@
                     <p>{{ realestate.description|truncatewords:20 }}</p>
                     <a href="{% url 'detail' realestate.pk %}#appartment" class="btn btn-primary">Details</a>
                 </div>
-                <div class="col-md-4 col-md-offset-1">
+                {% if realestate.image_set.all.0 %}
+                    <div class="col-md-4 col-md-offset-1">
                         <a href="{{ MEDIA_URL }}{{ realestate.image_set.all.0.image }}" class="portfolio-box">
-                            <img src="{{ MEDIA_URL }}{{ realestate.image_set.all.0.image }}" class="img-responsive" alt="{{ realestate.image_set.all.1.description }}">
+                            <img src="{{ MEDIA_URL }}{{ realestate.image_set.all.0.image }}" class="img-responsive" alt="{{ realestate.image_set.all.0.description }}">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
                                     <div class="project-category text-faded">
@@ -34,15 +35,8 @@
                                 </div>
                             </div>
                         </a>
-
-
-
-
-
-
-
-
-                </div>
+                    </div>
+                {% endif %}
                 <div class="clearfix visible-md-block"></div>
             {% empty %}
                 <div class="col-lg-8 col-lg-offset-2 text-center">

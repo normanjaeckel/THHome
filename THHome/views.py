@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.views.generic import DetailView, ListView
 
 from .models import About, Deal, Impression, RealEstate
@@ -14,7 +16,7 @@ class Home(ListView):
         context['deals'] = Deal.objects.all()
         context['impressions'] = Impression.objects.all()[:5]
         context['abouts'] = About.objects.all()
-        return super().get_context_data(**context)
+        return super(Home, self).get_context_data(**context)
 
 
 class Detail(DetailView):
