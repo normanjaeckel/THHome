@@ -214,8 +214,14 @@ class Deal(models.Model):
         'Titel',
         max_length=255)
 
-    text = models.TextField(
-        'Text')
+    short_text = models.TextField(
+        'Kurzer Text',
+        help_text='Kurzer Anrisstext zur Bescheibung der Aktion.')
+
+    details = models.TextField(
+        'Details',
+        help_text='Längerer Text zur Bescheibung der Aktion, der erst nach '
+                  'Klick auf den Details-Button erscheint.')
 
     icon = models.CharField(
         'Icon',

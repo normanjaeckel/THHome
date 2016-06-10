@@ -3,5 +3,14 @@
 }
 
 .service-box p.text-faded a {
-    color: #337ab7
+    color: #337ab7;
+}
+
+section#deals {
+    padding-bottom: 70px;
+}
+
+#deals .service-box a.btn {
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
