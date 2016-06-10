@@ -39,7 +39,7 @@
 
 {% block header %}
 
-    <header>
+    <header class="hidden-print">
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 class="header-text">{{ realestate.title }}</h1>
@@ -104,16 +104,20 @@
                     </dl>
                     {% if realestate.detail_list %}
                         <h3>Details</h3>
-                        <div class="row">
+                        <div class="row hidden-print">
                             {% for detail in realestate.detail_list %}
                                 <div class="col-xs-4">
                                     <p class="text-center">
                                         <span class="label label-primary text-center">{{ detail }}</span>
                                     </p>
-
                                 </div>
                             {% endfor %}
                         </div>
+                        <ul class="visible-print-block">
+                            {% for detail in realestate.detail_list %}
+                                <li>{{ detail }}</li>
+                            {% endfor %}
+                        </ul>
                     {% endif %}
 
                     <h3>Energieausweis</h3>
@@ -130,7 +134,7 @@
                         <dd>{{ realestate.energy_certificate_dict.efficiency_class }}</dd>
                     </dl>
                     {% if realestate.expose %}
-                        <a href="{{ MEDIA_URL }}{{ realestate.expose.pdf }}" class="btn btn-primary btn-xl">Exposé herunterladen</a>
+                        <a href="{{ MEDIA_URL }}{{ realestate.expose.pdf }}" class="btn btn-primary btn-xl hidden-print">Exposé herunterladen</a>
                     {% endif %}
                 </div>
             </div>
@@ -174,6 +178,6 @@
 
 {% block adminlink %}
 
-    <p><a href="{% url 'admin:THHome_realestate_change' realestate.pk %}">Link zur Administration</a></p>
+    <p class="hidden-print"><a href="{% url 'admin:THHome_realestate_change' realestate.pk %}">Link zur Administration</a></p>
 
 {% endblock %}
