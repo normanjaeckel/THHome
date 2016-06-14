@@ -174,9 +174,9 @@ CONSTANCE_CONFIG = {
         'XY GmbH & Co. KG · Musterstraße 1 · 04333 Musterstadt',
         'Text im Impressumsbereich. Leerzeilen erzeugen neue Absätze.'),
     'LEGAL_NOTICE_DISCLAIMER': (
-        'Haftung für Inhalte, Links und Hinweise zum Urheberrecht ...',
+        '<p>Haftung für Inhalte, Links und Hinweise zum Urheberrecht ...</p>',
         'Text im Bereich Haftungsausschluss (Disclaimer) und '
-        'Datenschutzerklärung. Leerzeilen erzeugen neue Absätze.'),
+        'Datenschutzerklärung. HTML-Tags sind möglich.'),
     'LOCATION_IFRAME': (
         '<iframe src=""></iframe>',
         'Iframe-Tag für eine eingebettete Karte wie von Google-Maps oder '
