@@ -21,3 +21,7 @@ site.register(Deal)
 site.register(About)
 site.register(Impression)
 site.unregister(Group)
+
+site.site_title = 'Website-Verwaltung'
+site.site_header = 'Website-Verwaltung'
+site.index_title = 'Hauptmenü'
