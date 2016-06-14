@@ -157,7 +157,7 @@ CONSTANCE_CONFIG = {
         'verwendet.'),
     'HEADLINE': (
         'Kopfzeile',
-        'Kopfzeile auf der Startseite.'),
+        'Kopfzeile auf der Startseite. HTML-Tags sind möglich.'),
     'SUB_HEADLINE': (
         'Untertitel unter der Kopfzeile',
         'Text unter der Kopfzeile auf der Startseite.'),
