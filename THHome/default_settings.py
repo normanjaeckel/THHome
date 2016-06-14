@@ -177,4 +177,8 @@ CONSTANCE_CONFIG = {
         'Haftung für Inhalte, Links und Hinweise zum Urheberrecht ...',
         'Text im Bereich Haftungsausschluss (Disclaimer) und '
         'Datenschutzerklärung. Leerzeilen erzeugen neue Absätze.'),
+    'LOCATION_IFRAME': (
+        '<iframe src=""></iframe>',
+        'Iframe-Tag für eine eingebettete Karte wie von Google-Maps oder '
+        'OpenStreetMap.'),
 }
