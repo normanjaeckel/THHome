@@ -153,32 +153,33 @@ CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = {
     'TITLE': (
         'Titel der Seite',
-        'Titel der Seite. Wird im Browserkopf und in der Kopfzeile der Seite '
-        'verwendet.'),
+        u'Titel der Seite. Wird im Browserkopf und in der Kopfzeile der Seite '
+        u'verwendet.'),
     'HEADLINE': (
         'Kopfzeile',
-        'Kopfzeile auf der Startseite. HTML-Tags sind möglich.'),
+        u'Kopfzeile auf der Startseite. HTML-Tags sind möglich.'),
     'SUB_HEADLINE': (
         'Untertitel unter der Kopfzeile',
-        'Text unter der Kopfzeile auf der Startseite.'),
+        u'Text unter der Kopfzeile auf der Startseite. HTML-Tags sind '
+        u'möglich.'),
     'HEADER_IMAGE': (
         'img/header.jpg',
-        'Pfad unterhalb des Ordners mit den statischen Dateien.'),
+        u'Pfad unterhalb des Ordners mit den statischen Dateien.'),
     'CONTACT_PHONE': (
         '0123 45 67 89 0 <br> 0987 65 43 21 0',
-        'Telefonnummer im Bereich Kontakt. HTML-Tags sind möglich.'),
+        u'Telefonnummer im Bereich Kontakt. HTML-Tags sind möglich.'),
     'CONTACT_MAIL': (
         'mail@example.com',
-        'E-Mail-Adresse im Bereich Kontakt. HTML-Tags sind möglich.'),
+        u'E-Mail-Adresse im Bereich Kontakt. HTML-Tags sind möglich.'),
     'LEGAL_NOTICE': (
         'XY GmbH & Co. KG · Musterstraße 1 · 04333 Musterstadt',
-        'Text im Impressumsbereich. Leerzeilen erzeugen neue Absätze.'),
+        u'Text im Impressumsbereich. Leerzeilen erzeugen neue Absätze.'),
     'LEGAL_NOTICE_DISCLAIMER': (
         '<p>Haftung für Inhalte, Links und Hinweise zum Urheberrecht ...</p>',
-        'Text im Bereich Haftungsausschluss (Disclaimer) und '
-        'Datenschutzerklärung. HTML-Tags sind möglich.'),
+        u'Text im Bereich Haftungsausschluss (Disclaimer) und '
+        u'Datenschutzerklärung. HTML-Tags sind möglich.'),
     'LOCATION_IFRAME': (
         '<iframe src=""></iframe>',
-        'Iframe-Tag für eine eingebettete Karte wie von Google-Maps oder '
-        'OpenStreetMap.'),
+        u'Iframe-Tag für eine eingebettete Karte wie von Google-Maps oder '
+        u'OpenStreetMap.'),
 }

@@ -12,8 +12,8 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-{{ deal.icon|default:'star' }} wow bounceIn text-primary"></i>
                         <h3>{{ deal.title }}</h3>
-                        <p class="text-muted">{{ deal.short_text }}</p>
-                        <p class="text-muted collapse" id="collapseDealDetails-{{ deal.pk }}">{{ deal.details }}</p>
+                        <p class="text-muted">{{ deal.short_text|safe }}</p>
+                        <p class="text-muted collapse" id="collapseDealDetails-{{ deal.pk }}">{{ deal.details|safe }}</p>
                         <a class="btn btn-primary btn-xl wow tada" role="button"
                            data-toggle="collapse" href="#collapseDealDetails-{{ deal.pk }}"
                            aria-expanded="false" aria-controls="collapseDealDetails-{{ deal.pk }}">

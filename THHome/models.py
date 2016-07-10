@@ -219,12 +219,16 @@ class Deal(models.Model):
 
     short_text = models.TextField(
         'Kurzer Text',
-        help_text='Kurzer Anrisstext zur Bescheibung der Aktion.')
+        help_text='Kurzer Anrisstext zur Bescheibung der Aktion. HTML-Tags '
+                  'sind möglich. Der Text wird jedoch automatisch in ein '
+                  '&lt;p&gt; Tag gesetzt.')
 
     details = models.TextField(
         'Details',
         help_text='Längerer Text zur Bescheibung der Aktion, der erst nach '
-                  'Klick auf den Details-Button erscheint.')
+                  'Klick auf den Details-Button erscheint. HTML-Tags sind '
+                  'möglich. Der Text wird jedoch automatisch in ein &lt;p&gt; '
+                  'Tag gesetzt.')
 
     icon = models.CharField(
         'Icon',
@@ -287,7 +291,7 @@ class Impression(models.Model):
     """
     image = models.FileField(
         'Bild',
-        help_text='Bildformat 650 x 350')
+        help_text='Bildformat 650 x 487')
 
     short_description = models.CharField(
         'Kurzbeschreibung/Schlagwort',
@@ -323,5 +327,5 @@ class Impression(models.Model):
         """
         description = self.short_description
         if self.long_description:
-            description += ' ({})'.format(self.long_description)
+            description += u' ({})'.format(self.long_description)
         return description
