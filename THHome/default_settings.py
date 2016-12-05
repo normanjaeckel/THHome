@@ -178,8 +178,9 @@ CONSTANCE_CONFIG = {
         '<p>Haftung für Inhalte, Links und Hinweise zum Urheberrecht ...</p>',
         u'Text im Bereich Haftungsausschluss (Disclaimer) und '
         u'Datenschutzerklärung. HTML-Tags sind möglich.'),
-    'LOCATION_IFRAME': (
-        '<iframe src=""></iframe>',
-        u'Iframe-Tag für eine eingebettete Karte wie von Google-Maps oder '
-        u'OpenStreetMap.'),
+    'LOCATION_TEXT_AND_IFRAME': (
+        '<p>Das Gebäude liegt im Rande der Südstadt ganz in der Nähe der '
+        'Saaleaue.</p><iframe src=""></iframe>',
+        u'Text mit Iframe-Tag für eine eingebettete Karte wie von Google-Maps '
+        u'oder OpenStreetMap. HTML-Tags sind möglich.'),
 }
