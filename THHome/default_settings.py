@@ -183,4 +183,14 @@ CONSTANCE_CONFIG = {
         'Saaleaue.</p><iframe src=""></iframe>',
         u'Text mit Iframe-Tag für eine eingebettete Karte wie von Google-Maps '
         u'oder OpenStreetMap. HTML-Tags sind möglich.'),
+    'META_DESCRIPTION': (
+        'Kurzbeschreibung',
+        u'Kurzbeschreibung der Seite. Wird von Suchmaschinen bei der Anzeige '
+        u'des Suchergebnisses verwendet.'),
+    'META_KEYWORDS': (
+        'Appartments,Houses,Real Estate',
+        u'Schlagworte mit Komma getrennt. Wird von Suchmaschinen verwendet.'),
+    'META_AUTHOR': (
+        'XY GmbH & Co. KG',
+        u'Autor der Seite. Wird von Suchmaschinen verwendet.'),
 }
