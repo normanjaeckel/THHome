@@ -34,7 +34,7 @@ def create_deployment_dir():
             settings = re.sub(
                 r"SECRET_KEY = ''",
                 "SECRET_KEY = '%s'" % secret_key,
-                default_settings.read().decode('utf-8'))
+                default_settings.read())
 
             wsgi_app = '%s.wsgi.application' % DEPLOYMENT_DIRECTORY_NAME
             settings = re.sub(
@@ -46,7 +46,7 @@ def create_deployment_dir():
                 os.path.join(base_dir, DEPLOYMENT_DIRECTORY_NAME),
                 'settings.py')
             with open(settings_path, 'w') as new_settings:
-                new_settings.write(settings.encode('utf-8'))
+                new_settings.write(settings)
 
         # Create wsgi file.
         with open(os.path.join(

@@ -10,7 +10,7 @@ Local development
 
 To setup a local development version run::
 
-    $ virtualenv .virtualenv --python=python2
+    $ python -m venv .virtualenv
     $ source .virtualenv/bin/activate
     $ pip install -U pip
     $ pip install --requirement requirements.txt
